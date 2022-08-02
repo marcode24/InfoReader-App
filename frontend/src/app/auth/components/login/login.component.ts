@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
 
   loadForm() {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
+      email: ['userexample@domain.com', Validators.required],
+      password: ['Mysecret12345$', Validators.required]
     });
   }
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         next: () => {
           this.closeModal.emit(true);
         },
-        error: (e) => {
+        error: (e: any) => {
           if(e.status === 400) {
             const error = e.error;
             const message = error?.msg;
